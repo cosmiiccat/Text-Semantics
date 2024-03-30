@@ -5,7 +5,7 @@ charset-normalizer==3.3.2
 comm==0.2.2
 debugpy==1.8.1
 decorator==5.1.1
-Django==5.0.3
+Django
 django-rest-framework==0.1.0
 djangorestframework==3.15.1
 executing==2.0.1
