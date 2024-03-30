@@ -9,11 +9,13 @@ import re
 import os
 import json
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv("config.env")
+# load_dotenv("config.env")
 
-EMBEDDING_MODEL_NAME = os.getenv('EMBEDDING_MODEL_NAME')
+# EMBEDDING_MODEL_NAME = os.getenv('EMBEDDING_MODEL_NAME')
+
+EMBEDDING_MODEL_NAME = 'all-MiniLM-L6-v2'
 
 class SemanticSimilarity:
 

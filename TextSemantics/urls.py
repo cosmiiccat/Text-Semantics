@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# The below can be used for api docs
+# The below can be used for API DOC
 
 # from rest_framework import permissions
 # from drf_yasg.views import get_schema_view
