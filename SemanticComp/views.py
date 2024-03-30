@@ -28,7 +28,7 @@ def ensure(request):
 
 @api_view(['POST'])
 @csrf_exempt 
-def score(request):
+def similarity_score(request):
     try:
         if request.method != "POST":
             raise custom_exceptions.CustomError(f"Method - {request.method} is not Allowed")
@@ -38,9 +38,82 @@ def score(request):
             if key not in req_data.keys():
                 raise custom_exceptions.CustomError(f"The parameter {key} in JSON Body is missing")
 
-        payload = {"type":req_data["type"], "image":req_data["image"]}
-        image_tags = xvision_client.ask(route="image-vision/image-tags", method="POST", payload=payload)
-        return JsonResponse(image_tags)
+        resp = {
+            "similarity score": similarity_client.hybridSimilarity(
+                prediction=req_data['text1'], 
+                ground_truth=req_data['text2']
+            )
+        }
+        return JsonResponse(resp)
+    
+    except Exception as e:
+        return JsonResponse({"success":"false", "error":f"{e}"})
+    
+@api_view(['POST'])
+@csrf_exempt 
+def token_score(request):
+    try:
+        if request.method != "POST":
+            raise custom_exceptions.CustomError(f"Method - {request.method} is not Allowed")
+        
+        req_data = json.loads(request.body.decode('utf-8'))
+        for key in ["text1", "text2"]:
+            if key not in req_data.keys():
+                raise custom_exceptions.CustomError(f"The parameter {key} in JSON Body is missing")
+
+        resp = {
+            "similarity score": similarity_client.token_f1_score(
+                prediction=req_data['text1'], 
+                ground_truth=req_data['text2']
+            )
+        }
+        return JsonResponse(resp)
+    
+    except Exception as e:
+        return JsonResponse({"success":"false", "error":f"{e}"})
+    
+@api_view(['POST'])
+@csrf_exempt 
+def paragraph_score(request):
+    try:
+        if request.method != "POST":
+            raise custom_exceptions.CustomError(f"Method - {request.method} is not Allowed")
+        
+        req_data = json.loads(request.body.decode('utf-8'))
+        for key in ["text1", "text2"]:
+            if key not in req_data.keys():
+                raise custom_exceptions.CustomError(f"The parameter {key} in JSON Body is missing")
+
+        resp = {
+            "similarity score": similarity_client.paragraph_f1_score(
+                prediction=req_data['text1'], 
+                ground_truth=req_data['text2']
+            )
+        }
+        return JsonResponse(resp)
+    
+    except Exception as e:
+        return JsonResponse({"success":"false", "error":f"{e}"})
+    
+@api_view(['POST'])
+@csrf_exempt 
+def embedding_score(request):
+    try:
+        if request.method != "POST":
+            raise custom_exceptions.CustomError(f"Method - {request.method} is not Allowed")
+        
+        req_data = json.loads(request.body.decode('utf-8'))
+        for key in ["text1", "text2"]:
+            if key not in req_data.keys():
+                raise custom_exceptions.CustomError(f"The parameter {key} in JSON Body is missing")
+
+        resp = {
+            "similarity score": similarity_client.embeddingSimilarity(
+                prediction=req_data['text1'], 
+                ground_truth=req_data['text2']
+            )
+        }
+        return JsonResponse(resp)
     
     except Exception as e:
         return JsonResponse({"success":"false", "error":f"{e}"})
