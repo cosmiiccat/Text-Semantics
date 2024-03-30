@@ -11,7 +11,7 @@ import json
 
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("config.env")
 
 EMBEDDING_MODEL_NAME = os.getenv('EMBEDDING_MODEL_NAME')
 
