@@ -2,9 +2,13 @@
 Text Semantics aims to quantify the similarity dynamics of texts exploring semantic similarity, token based n gram similarity, paragraph similarity as well as hybrid similairty which can be used across other pipelines and NLP usecases. 
 
 It mainly performs three kinds of similarities:
+    
     1. Overall Semantic Similarity (Hybrid) ---> Weightage of all 
+
     2. Token based similarity ---> Similarity between each token
+
     3. Paragraph based similarity ----> Similarity between paragraphs
+
     4. Embedding based similarity ---> Embedding semantic similarity
 
 ## Endpoints
