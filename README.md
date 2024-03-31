@@ -13,20 +13,20 @@ It mainly performs three kinds of similarities:
 
 ## Endpoints
 
-BASE URL: `http://127.0.0.1:8000/text-similarity`
+HOSTED URL: https://text-semantics-prod.onrender.com/
 
 - **Ensure Endpoint**
 
-  - URL: `/ensure`
+  - URL: https://text-semantics-prod.onrender.com/text-similarity/ensure
   - Description: Endpoint for ensuring that the API is running properly.
   - Method: GET
 
 - **Overall Similarity Score Endpoint**
 
-  - URL: `/similarity-score/overall`
+  - URL: https://text-semantics-prod.onrender.com/text-similarity/similarity-score/overall
   - Description: Endpoint for calculating the overall similarity score between two text paragraphs using a hybrid approach combining token-based F1 score, paragraph-based F1 score, and embedding similarity.
   - Method: POST
-  - Request Body:
+  - Request Body (Payload):
     ```json
     {
       "text1": "First text paragraph...",
@@ -42,27 +42,60 @@ BASE URL: `http://127.0.0.1:8000/text-similarity`
 
 - **Token Similarity Score Endpoint**
 
-  - URL: `/similarity-score/token`
+  - URL: https://text-semantics-prod.onrender.com/text-similarity/similarity-score/token
   - Description: Endpoint for calculating the token-based similarity score between two text paragraphs using F1 score.
   - Method: POST
-  - Request Body: Same as Overall Similarity Score Endpoint
-  - Response Body: Same as Overall Similarity Score Endpoint
+  - Request Body (Payload):
+    ```json
+    {
+      "text1": "First text paragraph...",
+      "text2": "Second text paragraph..."
+    }
+    ```
+  - Response Body:
+    ```json
+    {
+      "similarity score": 0.93
+    }
+    ```
 
 - **Paragraph Similarity Score Endpoint**
 
-  - URL: `/similarity-score/paragraph`
+  - URL: https://text-semantics-prod.onrender.com/text-similarity/similarity-score/paragraph
   - Description: Endpoint for calculating the paragraph-based similarity score between two text paragraphs using F1 score.
   - Method: POST
-  - Request Body: Same as Overall Similarity Score Endpoint
-  - Response Body: Same as Overall Similarity Score Endpoint
+  - Request Body (Payload):
+    ```json
+    {
+      "text1": "First text paragraph...",
+      "text2": "Second text paragraph..."
+    }
+    ```
+  - Response Body:
+    ```json
+    {
+      "similarity score": 0.75
+    }
+    ```
 
 - **Embedding Similarity Score Endpoint**
 
-  - URL: `/similarity-score/embedding`
+  - URL: https://text-semantics-prod.onrender.com/text-similarity/similarity-score/embedding
   - Description: Endpoint for calculating the embedding-based similarity score between two text paragraphs using cosine similarity.
   - Method: POST
-  - Request Body: Same as Overall Similarity Score Endpoint
-  - Response Body: Same as Overall Similarity Score Endpoint
+  - Request Body (Payload):
+    ```json
+    {
+      "text1": "First text paragraph...",
+      "text2": "Second text paragraph..."
+    }
+    ```
+  - Response Body:
+    ```json
+    {
+      "similarity score": 0.98
+    }
+    ```
 
 ## Getting Started
 
