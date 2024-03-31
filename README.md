@@ -72,6 +72,8 @@ To run the API locally, follow these steps:
 
 Ensure that the appropriate firewall rules and network configurations are set up to allow incoming traffic on the specified port.
 
+Github: https://github.com/cosmiiccat/Text-Semantics
+
 
 
 
